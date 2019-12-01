@@ -11,10 +11,6 @@ export const fuelPerModule = (mass: number) => {
 };
 
 export const fuelPerModuleRecursive = (mass: number, fuel = 0): number => {
-  if (mass <= 0) {
-    return fuel;
-  }
-
   const fuelRequired = fuelPerModule(mass);
 
   if (fuelRequired === 0) {
@@ -24,13 +20,13 @@ export const fuelPerModuleRecursive = (mass: number, fuel = 0): number => {
   return fuelPerModuleRecursive(fuelRequired, fuel + fuelRequired);
 };
 
-export const summedMassPerModule = (input: string) =>
+export const summedFuelPerModule = (input: string) =>
   lines(input)
     .map(Number)
     .map(fuelPerModule)
     .reduce(sum, 0);
 
-export const summedMassPerModuleWithFuelIncluded = (input: string) =>
+export const summedFuelPerModuleWithFuelIncluded = (input: string) =>
   lines(input)
     .map(Number)
     .map(v => fuelPerModuleRecursive(v))
