@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest",
     "run": "ts-node",
-    "01": "ts-node ./src/01"
+    "01": "ts-node ./src/01",
+    "02": "ts-node ./src/02"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
