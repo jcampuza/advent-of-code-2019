@@ -1,3 +1,5 @@
+import { range } from '../utils';
+
 interface Position {
   x: number;
   y: number;
@@ -12,8 +14,6 @@ interface Traversal {
 }
 
 const stringify = (pos: Position) => `x${pos.x},y${pos.y}`;
-
-const range = (value: number) => Array.from({ length: value }, (v, i) => i + 1);
 
 const getTraversal = (point: string): Traversal => {
   const direction = point[0] as Direction;

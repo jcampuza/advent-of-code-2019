@@ -42,3 +42,13 @@ export class CircularList<T> {
 }
 
 export const sum = (a: number, b: number) => a + b;
+
+export const range = (value: number) => Array.from({ length: value }, (v, i) => i + 1);
+
+export const pipe = <T extends any[], R>(fn1: (...args: T) => R, ...fns: Array<(a: R) => R>) => {
+  const piped = fns.reduce(
+    (prevFn, nextFn) => (value: R) => nextFn(prevFn(value)),
+    value => value
+  );
+  return (...args: T) => piped(fn1(...args));
+};
