@@ -37,6 +37,7 @@ export class IntcodeComputer {
       }
       case 2: {
         this.opMUL();
+        break;
       }
     }
   }
